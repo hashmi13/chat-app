@@ -1,4 +1,15 @@
-// ... your imports
+import express from 'express';
+import 'dotenv/config';
+import cors from 'cors';
+import http from 'http';
+import { connctDB } from './Lib/db.js';
+import { routes as authRoutes } from './middleWare/auth.js';
+import messageRoutes from './routes/msgRoute.js';
+import userRoutes from './routes/userRoutes.js'; 
+import groupRoutes from './routes/groupRoutes.js';
+import { Server } from 'socket.io';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 // Create express app and server
 const app = express();
@@ -53,6 +64,7 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
+// ✅ Always start the server
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {
   console.log("Server is running on port:" + PORT );
