@@ -53,9 +53,6 @@ app.use('/api/auth', userRoutes);
 app.use('/api/message', messageRoutes);
 app.use('/api/group', groupRoutes);
 
-app.get('/api/test', (req, res) => {
-  res.json({ message: "✅ Backend is working!" });
-});
 
 
 // Serve frontend in production
@@ -69,11 +66,11 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-if(process.env.NODE_ENV !== 'production'){
-  const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {
-  console.log("Server is running on port:" + PORT );
+  console.log("✅ Server is running on port:", PORT);
 });
 
-}
+
+
 export default server;
