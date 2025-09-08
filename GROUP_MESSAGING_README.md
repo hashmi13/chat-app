@@ -105,36 +105,7 @@ This document describes the group messaging functionality that has been added to
 - Admins can only manage groups they have permission for
 - Input validation and error handling
 
-## Database Schema
 
-### Group Collection
-```javascript
-{
-  name: String (required),
-  description: String,
-  groupPic: String,
-  createdBy: ObjectId (ref: User),
-  admins: [ObjectId] (ref: User),
-  members: [ObjectId] (ref: User),
-  isActive: Boolean,
-  timestamps
-}
-```
-
-### GroupMessage Collection
-```javascript
-{
-  groupId: ObjectId (ref: Group),
-  senderId: ObjectId (ref: User),
-  text: String,
-  image: String,
-  seenBy: [{
-    userId: ObjectId (ref: User),
-    seenAt: Date
-  }],
-  timestamps
-}
-```
 
 ## Future Enhancements
 
